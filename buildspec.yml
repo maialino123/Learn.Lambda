@@ -1,0 +1,18 @@
+﻿version: 0.2
+env:
+    variables:
+        LAMBDA_FUNCTION_NAME: "MyFirstLambda"
+        PROJECT_FILE_FIR_PATH: "Learn.Lambda"
+phases:
+    install:
+        runtime-versions:
+            dotnet: 8.0
+    build:
+        commands:
+            - echo Deployment started on `date` for function $LAMBDA_FUNCTION_NAME
+            - export PATH="$PATH:/root/.dotnet/tools"
+            - dotnet new --install Amazon.Lambda.Templates::*
+            - dotnet tool install -g Amazon.Lambda.Tools
+            - cd $PROJECT_FILE_FIR_PATH
+            - dotnet lambda deploy-function --$LAMBDA_FUNCTION_NAME
+ 
