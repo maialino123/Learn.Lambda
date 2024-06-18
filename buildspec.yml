@@ -9,5 +9,5 @@ phases:
             - export PATH="$PATH:/root/.dotnet/tools"
             - dotnet new --install Amazon.Lambda.Templates::*
             - dotnet tool install -g Amazon.Lambda.Tools
-            - dotnet lambda deploy-function --MyFirstLambda
+            - dotnet lambda deploy-function --Learn.Lambda::Learn.Lambda.Function::FunctionHandlerAsync
  
